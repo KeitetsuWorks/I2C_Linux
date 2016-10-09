@@ -1,8 +1,10 @@
 /**
- * @file    i2c.c
- * @brief   I2C Device Register Access Functions
- * @author  Keitetsu
- * @date    2016/09/05
+ * @file        i2c.c
+ * @brief       I2C Device Register Access Functions
+ * @author      Keitetsu
+ * @date        2016/09/05
+ * @copyright   Copyright (c) 2016 Keitetsu
+ * @license     This software is released under the MIT License.
  */
 
 #include <stdio.h>
