@@ -19,7 +19,7 @@
 
 #include "i2c.h"
 
-int open_i2c_bus(
+int i2c_open_bus(
         char *i2c_bus)
 {
     int fd;
@@ -32,14 +32,14 @@ int open_i2c_bus(
 }
 
 
-void close_i2c_bus(
+void i2c_close_bus(
         int fd)
 {
     close(fd);
 }
 
 
-int read_i2c_register(
+int i2c_read_register(
         int fd,
         uint8_t dev_addr,
         uint8_t reg_addr,
@@ -75,7 +75,7 @@ int read_i2c_register(
 }
 
 
-int write_i2c_register(
+int i2c_write_register(
         int fd,
         uint8_t dev_addr,
         uint8_t reg_addr,
