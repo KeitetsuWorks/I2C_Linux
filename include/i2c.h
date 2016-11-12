@@ -46,7 +46,7 @@ int i2c_read_register(
  * @param[in]       fd          Device File for I2C Bus
  * @param[in]       dev_addr    I2C Device Address
  * @param[in]       reg_addr    I2c Device Register Address
- * @param[out]      reg_data    Write Data for I2C Device Register
+ * @param[in]       reg_data    Write Data for I2C Device Register
  */
 int i2c_write_register(
         int fd,
