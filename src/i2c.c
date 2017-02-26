@@ -36,6 +36,8 @@ void i2c_close_bus(
         int fd)
 {
     close(fd);
+
+    return;
 }
 
 
