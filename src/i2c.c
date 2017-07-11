@@ -20,6 +20,7 @@
 
 #include "i2c.h"
 
+
 int i2c_open_bus(
         char *i2c_bus)
 {
@@ -51,6 +52,9 @@ int i2c_read_register(
     uint8_t inbuf, outbuf;
     struct i2c_rdwr_ioctl_data packets;
     struct i2c_msg messages[2];
+    int result;
+    
+    result = 0;
     
     outbuf = reg_addr;
     messages[0].addr  = dev_addr;
@@ -68,13 +72,13 @@ int i2c_read_register(
     
     if(ioctl(fd, I2C_RDWR, &packets) < 0) {
         perror("Error: Failed to send data");
-        
-        return 1;
+        result = 1;
+    }
+    else {
+        *reg_data = inbuf;
     }
     
-    *reg_data = inbuf;
-    
-    return 0;
+    return result;
 }
 
 
@@ -87,6 +91,9 @@ int i2c_write_register(
     uint8_t outbuf[2];
     struct i2c_rdwr_ioctl_data packets;
     struct i2c_msg messages[1];
+    int result;
+    
+    result = 0;
     
     messages[0].addr  = dev_addr;
     messages[0].flags = 0;
@@ -101,9 +108,8 @@ int i2c_write_register(
     
     if(ioctl(fd, I2C_RDWR, &packets) < 0) {
         perror("Error: Failed to send data");
-        
-        return 1;
+        result = 1;
     }
     
-    return 0;
+    return result;
 }

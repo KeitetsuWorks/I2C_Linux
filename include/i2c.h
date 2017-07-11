@@ -9,7 +9,7 @@
 
 #pragma once    // __I2C_H__
 
-// プロトタイプ宣言
+
 /**
  * @brief   Open Function for I2C Bus
  * @param[in]       i2c_bus     Device File for I2C Bus
